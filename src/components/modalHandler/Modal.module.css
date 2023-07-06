@@ -1,0 +1,39 @@
+.modalContainer {
+  @apply fixed 
+  inset-0 
+  bg-purple-950/25 
+  backdrop-blur-sm
+  flex
+  flex-col
+  items-end
+  gap-3
+  pt-11
+  px-5
+  sm:hidden
+  z-50;
+}
+
+.modalItemsGroup {
+  @apply w-full
+  rounded-md
+  bg-indigo-100;
+}
+
+.modalItem {
+  @apply flex
+  justify-start
+  items-center
+  gap-2
+  p-4
+  text-indigo-800
+  hover:bg-indigo-200 
+  hover:rounded-md;
+}
+
+.closeBtn {
+  @apply text-indigo-100 
+  place-self-end
+  text-3xl
+  font-bold
+  hover:text-indigo-200;
+}

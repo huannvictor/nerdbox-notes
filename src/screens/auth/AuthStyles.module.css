@@ -1,0 +1,31 @@
+.section {
+  @apply h-full w-full flex
+  flex-col
+  justify-center
+  items-center
+  z-10;
+}
+
+.cardContainer {
+  @apply flex flex-col justify-center items-center gap-8
+  w-full max-w-sm py-10
+  rounded-lg
+  bg-purple-100
+  drop-shadow-lg;
+}
+
+.card {
+  @apply flex flex-col justify-center items-center gap-8;
+}
+
+.logo {
+  @apply w-2/12;
+}
+
+.title {
+  @apply text-purple-900 font-bold text-lg;
+}
+
+.divider {
+  @apply divide-y-2 divide-indigo-700/25;
+}

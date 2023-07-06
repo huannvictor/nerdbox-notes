@@ -1,0 +1,50 @@
+.section {
+  @apply h-full
+  md:p-20
+  sm:p-16
+  2sm:p-8
+  3sm:p-4;
+}
+
+.columnContainer {
+  @apply sm:flex
+  sm:flex-col
+  sm:gap-8
+  justify-center
+  items-center;
+}
+
+.columnGrid {
+  @apply lg:grid 
+  lg:grid-cols-2 
+  lg:gap-16;
+}
+
+.column {
+  @apply flex flex-col justify-center items-center gap-8 text-white;
+}
+
+.title {
+  @apply font-semibold 
+  md:text-3xl 
+  sm:text-2xl
+  2sm:text-lg;
+}
+
+.subtitle {
+  @apply font-normal
+  md:text-xl;
+}
+
+.presentationImg {
+  @apply lg:w-3/4 sm:w-2/4;
+}
+
+.btnCta {
+  @apply border-2
+  border-purple-500
+  p-4
+  rounded-md
+  text-xl
+  hover:bg-purple-500;
+}

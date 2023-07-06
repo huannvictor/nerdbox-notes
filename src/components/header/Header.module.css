@@ -1,0 +1,50 @@
+.header {
+  @apply flex 
+  items-center 
+  justify-between 
+  px-3
+  py-2
+  bg-purple-100;
+}
+
+.brand {
+  @apply flex 
+    flex-row 
+    justify-between 
+    gap-2 
+    sm:text-xl text-lg
+    align-middle 
+    font-bold;
+}
+
+.logo {
+  @apply h-8 w-8;
+}
+
+.cta {
+  @apply bg-indigo-200;
+}
+
+.navBar {
+  @apply flex
+  gap-2
+  items-center;
+}
+
+.navItem {
+  @apply text-purple-800
+  hover:text-purple-950
+  hover:bg-indigo-300
+  hidden
+  sm:flex 
+  flex-col 
+  items-center
+  p-2
+  rounded;
+}
+
+.menu {
+  @apply text-purple-800 
+  text-2xl
+  sm:hidden;
+}
