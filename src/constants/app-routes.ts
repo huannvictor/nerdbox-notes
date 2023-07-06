@@ -1,7 +1,7 @@
 export const APP_ROUTES = {
   private: {
-    dashboard: {
-      name: '/dashboard',
+    notes: {
+      name: '/notes',
     },
     unauthorized: {
       name: '/unauthorized',
@@ -12,5 +12,6 @@ export const APP_ROUTES = {
     login: '/login',
     register: '/register',
     forget_password: '/forget_password',
+    // notes: '/notes',
   },
 }
