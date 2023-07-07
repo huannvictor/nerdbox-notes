@@ -12,10 +12,10 @@ interface Props {
 
 const LoginButton: React.FC<Props> = ({ className, onClick }) => {
   const isUserAuth = checkUserAuthenticated()
-  const router = useRouter()
+  const { push } = useRouter()
 
   const handleRouterPush = () => {
-    isUserAuth ? router.push('/notes') : router.push('/login')
+    !isUserAuth ? push('/login') : push('/notes')
   }
 
   return (
