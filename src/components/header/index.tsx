@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LogoImg from '../../assets/images/logo.svg'
 import RegisterIcon from '../icons/RegisterIcon'
-import SignInIcon from '../icons/SignInIcon'
+import LoginButton from '../loginButton'
 import ModalHandler from '../modalHandler'
 import styles from './Header.module.css'
 
@@ -17,10 +17,7 @@ export default function Header() {
       </Link>
       <nav className={navBar}>
         <ModalHandler className={menu} />
-        <Link href="/login" className={[cta, navItem].join(' ')}>
-          <SignInIcon />
-          Login
-        </Link>
+        <LoginButton className={[cta, navItem].join(' ')} />
         <Link href="/register" className={navItem}>
           <RegisterIcon />
           Criar Conta

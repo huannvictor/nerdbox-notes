@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import CloseBtnIcon from '../icons/CloseBtnIcon'
 import MenuIcon from '../icons/MenuIcon'
 import RegisterIcon from '../icons/RegisterIcon'
-import SignInIcon from '../icons/SignInIcon'
+import LoginButton from '../loginButton'
 import styles from './Modal.module.css'
 
 interface Props {
@@ -34,10 +34,7 @@ const ModalHandler: React.FC<Props> = ({ className }) => {
           <CloseBtnIcon className={closeBtn} />
         </button>
         <div className={modalItemsGroup}>
-          <Link href="/login" className={modalItem} onClick={handleClick}>
-            <SignInIcon />
-            Login
-          </Link>
+          <LoginButton className={modalItem} onClick={handleClick} />
           <Link href="/register" className={modalItem} onClick={handleClick}>
             <RegisterIcon />
             Criar conta
