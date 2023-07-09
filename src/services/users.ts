@@ -14,10 +14,25 @@ type loginDataProps = {
 const UsersService = {
   register: (registerData: registerDataProps) =>
     Api.post('/users/register', registerData),
+
   login: async (loginData: loginDataProps) => {
     const response = await Api.post('/users/login', loginData)
     localStorage.setItem('user', JSON.stringify(response.data.user))
     localStorage.setItem('token', response.data.token)
+  },
+
+  logout: () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+  },
+
+  isUserAuthenticated: (): boolean => {
+    if (typeof window !== 'undefined') {
+      const userToken = localStorage.getItem('token')
+      return !!userToken
+    }
+
+    return false
   },
 }
 

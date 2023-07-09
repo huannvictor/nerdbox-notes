@@ -1,9 +1,13 @@
+'use client'
+
+const getLocalStorage = (key: string) => {
+  const data = window.localStorage.getItem(key)
+
+  return data!
+}
+
 export const checkUserAuthenticated = () => {
-  if (typeof window !== 'undefined') {
-    const userToken = localStorage.getItem('token')
+  const userToken = getLocalStorage('token')
 
-    return !!userToken
-  }
-
-  return false
+  return !!userToken
 }

@@ -1,4 +1,3 @@
-import Header from '@/components/header'
 import { ReactNode } from 'react'
 import './globals.css'
 
@@ -7,11 +6,17 @@ export const metadata = {
   description: 'Create, save, keep your notes',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  header,
+  children,
+}: {
+  header: ReactNode
+  children: ReactNode
+}) {
   return (
     <html lang="pt-Br">
       <body className="bg-custom-purple-darker text-zinc-100 h-screen">
-        <Header />
+        {header}
         {children}
       </body>
     </html>
