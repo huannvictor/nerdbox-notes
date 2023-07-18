@@ -1,3 +1,4 @@
+import HeaderHandler from '@/components/headerHandler'
 import { ReactNode } from 'react'
 import './globals.css'
 
@@ -16,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt-Br">
       <body className="bg-custom-purple-darker text-zinc-100 h-screen">
-        {header}
+        <HeaderHandler />
         {children}
       </body>
     </html>
