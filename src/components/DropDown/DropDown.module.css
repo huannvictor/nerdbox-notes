@@ -1,0 +1,40 @@
+.dropdown {
+  @apply flex
+  gap-3;
+}
+
+.dropdown .dropdownTrigger {
+  @apply static;
+}
+
+.dropdownTrigger .dropdownBtn {
+  @apply flex
+  gap-2
+  items-center
+  justify-between;
+}
+
+.dropdown .dropdownContent {
+  @apply invisible
+  absolute;
+}
+
+.dropdown.isActive .dropdownContent {
+  @apply flex
+  flex-col
+  gap-2
+  items-start
+  justify-center
+  visible
+  absolute
+  p-1
+  rounded-md
+  bg-indigo-500;
+}
+
+.dropdownContent .dropdownItem {
+  @apply w-full p-2
+  text-indigo-100
+  hover:bg-indigo-600/80 
+  hover:rounded-md;
+}
