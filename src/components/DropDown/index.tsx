@@ -1,7 +1,9 @@
 'use client'
 
+import UsersService from '@/services/users'
 import { CaretUpDown } from '@phosphor-icons/react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './DropDown.module.css'
 
@@ -16,9 +18,15 @@ const {
 
 const DropDown = () => {
   const [menuIsActive, setMenuIsActive] = useState(false)
+  const { push } = useRouter()
 
   const handleClick = () => {
     setMenuIsActive(!menuIsActive)
+  }
+
+  const handleLogOut = () => {
+    UsersService.logout()
+    push('/')
   }
 
   return (
@@ -32,9 +40,9 @@ const DropDown = () => {
           <Link className={dropdownItem} href="/users/edit">
             Editar Usuário
           </Link>
-          <Link className={dropdownItem} href="#">
+          <button className={dropdownItem} onClick={handleLogOut}>
             LogOut
-          </Link>
+          </button>
         </div>
       </div>
     </div>
