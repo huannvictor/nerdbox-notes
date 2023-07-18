@@ -99,7 +99,7 @@ export default function LoginForm(): ReactElement {
         </div>
         <div className={btnContainer}>
           <Link href="/register" className={btn}>
-            Crie sua conta
+            Ainda não tenho conta
           </Link>
           <button type="submit" className={[btn, btnCta].join(' ')}>
             Login
