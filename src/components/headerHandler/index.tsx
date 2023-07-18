@@ -8,5 +8,6 @@ export default function HeaderHandler() {
   const isUserAuth = checkUserAuthenticated()
 
   if (isUserAuth) return <HeaderLogged />
-  if (!isUserAuth) return <Header />
+
+  return <Header />
 }
