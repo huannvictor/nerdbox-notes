@@ -37,6 +37,9 @@ const DropDown = () => {
           <CaretUpDown />
         </button>
         <div className={dropdownContent}>
+          <Link className={dropdownItem} href="/notes">
+            Minhas Notas
+          </Link>
           <Link className={dropdownItem} href="/users/edit">
             Editar Usuário
           </Link>
