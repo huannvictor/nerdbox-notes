@@ -1,4 +1,8 @@
 import { push as Menu } from 'react-burger-menu'
+import customStyle from './SidebarMenu.module.css'
+import './styles.css'
+
+const { menuItem } = customStyle
 
 const SidebarMenu = (props: {
   isOpen: boolean
@@ -13,8 +17,10 @@ const SidebarMenu = (props: {
         customBurgerIcon={false}
         customCrossIcon={false}
       >
-        <div>Search</div>
-        <div>
+        <div className={menuItem}>
+          <p>Search</p>
+        </div>
+        <div className={menuItem}>
           <p>List</p>
         </div>
       </Menu>
