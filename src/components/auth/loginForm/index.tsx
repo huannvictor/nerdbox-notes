@@ -57,6 +57,7 @@ export default function LoginForm(): ReactElement {
         password: data.password,
       })
       setRedirectToNotes(true)
+      router.push('/notes')
     } catch (error) {
       setError(true)
     }
