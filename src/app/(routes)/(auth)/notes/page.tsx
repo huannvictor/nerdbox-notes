@@ -1,3 +1,11 @@
+import NotesScreen from '@/screens/notesScreen'
+
 export default function Dashboard() {
-  return <h1>DASHBOARD PAGE</h1>
+  return (
+    <>
+      <div className="notes" id="notes">
+        <NotesScreen />
+      </div>
+    </>
+  )
 }

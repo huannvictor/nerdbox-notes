@@ -24,11 +24,11 @@ export default function HeaderLogged() {
       <Link href="/" className={brand}>
         <Image alt="NerdBox Logo" src={LogoWhite} className={logo} />
         <span className={title}>Bem vindo usuário</span>
-        <button className={'dropdownBtn'} onClick={handleClick}>
-          <List />
-          <SidebarMenu isOpen={isOpen} setIsOpen={() => setIsOpen(isOpen)} />
-        </button>
       </Link>
+      <button className={'dropdownBtn'} onClick={handleClick}>
+        <List />
+        <SidebarMenu isOpen={isOpen} setIsOpen={() => setIsOpen(isOpen)} />
+      </button>
       <nav className={navBar}>
         <DropDown />
       </nav>

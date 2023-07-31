@@ -9,22 +9,22 @@ const SidebarMenu = (props: {
   setIsOpen: (arg0: boolean) => void
 }) => {
   return (
-    <>
-      <Menu
-        isOpen={props.isOpen}
-        onStateChange={(state) => props.setIsOpen(state.isOpen)}
-        disableAutoFocus
-        customBurgerIcon={false}
-        customCrossIcon={false}
-      >
-        <div className={menuItem}>
-          <p>Search</p>
-        </div>
-        <div className={menuItem}>
-          <p>List</p>
-        </div>
-      </Menu>
-    </>
+    <Menu
+      pageWrapId={'notes-editor'}
+      isOpen={props.isOpen}
+      onStateChange={(state) => props.setIsOpen(state.isOpen)}
+      disableAutoFocus
+      outerContainerId={'notes'}
+      customBurgerIcon={false}
+      customCrossIcon={false}
+    >
+      <div className={menuItem}>
+        <p>Search</p>
+      </div>
+      <div className={menuItem}>
+        <p>List</p>
+      </div>
+    </Menu>
   )
 }
 
