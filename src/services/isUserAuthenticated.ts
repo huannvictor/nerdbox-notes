@@ -1,13 +1,13 @@
 'use client'
 
-const getSessionStorage = (key: string) => {
-  const data = window.sessionStorage.getItem(key)
+const getLocalStorage = (key: string) => {
+  const data = localStorage.getItem(key)
 
   return data!
 }
 
 export const checkUserAuthenticated = () => {
-  const userToken = getSessionStorage('token')
+  const userToken = getLocalStorage('token')
 
   return !!userToken
 }

@@ -17,18 +17,18 @@ const UsersService = {
 
   login: async (loginData: loginDataProps) => {
     const response = await Api.post('/users/login', loginData)
-    sessionStorage.setItem('user', JSON.stringify(response.data.user))
-    sessionStorage.setItem('token', response.data.token)
+    localStorage.setItem('user', JSON.stringify(response.data.user))
+    localStorage.setItem('token', response.data.token)
   },
 
   logout: () => {
-    sessionStorage.removeItem('user')
-    sessionStorage.removeItem('token')
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
   },
 
   isUserAuthenticated: (): boolean => {
     if (typeof window !== 'undefined') {
-      const userToken = sessionStorage.getItem('token')
+      const userToken = localStorage.getItem('token')
       return !!userToken
     }
 
