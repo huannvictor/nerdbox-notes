@@ -5,3 +5,7 @@
 .notes {
   @apply flex w-full ml-0 mr-0;
 }
+
+.bm-overlay {
+  background: rgba(0 0 0 0%);
+}

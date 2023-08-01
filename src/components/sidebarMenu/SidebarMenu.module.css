@@ -1,5 +1,5 @@
-.menuItemsList {
-  @apply flex flex-col items-start gap-2 pt-4 pl-4;
+.menu {
+  @apply bg-purple-500/20;
 }
 
 .menuItem {

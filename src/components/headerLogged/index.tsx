@@ -16,22 +16,26 @@ export default function HeaderLogged() {
 
   const handleClick = () => {
     setIsOpen(!isOpen)
-    console.log(isOpen)
+    return isOpen
   }
 
   return (
-    <div className={header}>
-      <Link href="/" className={brand}>
-        <Image alt="NerdBox Logo" src={LogoWhite} className={logo} />
-        <span className={title}>Bem vindo usuário</span>
-      </Link>
-      <button className={'dropdownBtn'} onClick={handleClick}>
-        <List />
-        <SidebarMenu isOpen={isOpen} setIsOpen={() => setIsOpen(isOpen)} />
-      </button>
-      <nav className={navBar}>
-        <DropDown />
-      </nav>
-    </div>
+    <>
+      <div className={header}>
+        <div className={navBar}>
+          <Link href="/" className={brand}>
+            <Image alt="NerdBox Logo" src={LogoWhite} className={logo} />
+            <span className={title}>Bem vindo usuário</span>
+          </Link>
+          <button className={'dropdownBtn'} onClick={handleClick}>
+            <List />
+          </button>
+        </div>
+        <nav className={navBar}>
+          <DropDown />
+        </nav>
+      </div>
+      <SidebarMenu isOpen={isOpen} setIsOpen={() => setIsOpen(isOpen)} />
+    </>
   )
 }
