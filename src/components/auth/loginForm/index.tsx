@@ -5,7 +5,7 @@ import UsersService from '@/services/users'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { ReactElement, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import styles from '../AuthForm.module.css'
@@ -63,7 +63,9 @@ export default function LoginForm(): ReactElement {
     }
   }
 
-  if (redirectToNotes) router.push('/notes')
+  useEffect(() => {
+    if (redirectToNotes) router.push('/notes')
+  }, [redirectToNotes, router])
 
   return (
     <div className={formContainer}>
