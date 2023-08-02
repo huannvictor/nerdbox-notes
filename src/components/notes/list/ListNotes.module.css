@@ -1,0 +1,19 @@
+.listWrapper {
+  @apply flex flex-col gap-2 divide-y;
+}
+
+.listOption {
+  @apply flex flex-col;
+}
+
+.listTitle {
+  @apply text-base;
+}
+
+.listDescription {
+  @apply text-sm;
+}
+
+.listData {
+  @apply text-xs;
+}

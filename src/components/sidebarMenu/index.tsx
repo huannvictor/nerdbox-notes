@@ -26,6 +26,7 @@ const SidebarMenu = (props: {
     title: '',
     body: '',
     id: '',
+    created_at: '',
   })
 
   useEffect(() => {
@@ -34,7 +35,8 @@ const SidebarMenu = (props: {
 
   async function fetchNotes() {
     const response = await NotesService.index()
-    console.log(response)
+    console.log(response.data)
+
     if (response.data.length >= 1) {
       setNotes(response.data.reverse())
       setCurrentNote(response.data[0])
@@ -59,17 +61,15 @@ const SidebarMenu = (props: {
       customCrossIcon={false}
       className={menu}
     >
-      <ListNotes
-        notes={notes}
-        selectedNote={selectNote}
-        currentNote={currentNote}
-        created_at={created_at}
-      />
       <div className={menuItem}>
         <p>Search</p>
       </div>
       <div className={menuItem}>
-        <p>List</p>
+        <ListNotes
+          notes={notes}
+          selectNote={selectNote}
+          currentNote={currentNote}
+        />
       </div>
     </Menu>
   )

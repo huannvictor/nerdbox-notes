@@ -2,7 +2,7 @@
 
 import { Listbox } from '@headlessui/react'
 import Moment from 'moment'
-import { useState } from 'react'
+import styles from './ListNotes.module.css'
 
 interface Note {
   title: string
@@ -11,26 +11,33 @@ interface Note {
   created_at: string
 }
 
-export default function ListNotes(props: {
+interface Props {
   notes: Note[]
-  selectedNote: Note | undefined
+  selectNote: (prop: string) => void
   currentNote: Note | undefined
-}) {
-  const [selectedNote, setSelectedNote] = useState(props.notes[0])
+}
+
+export default function ListNotes(props: Props) {
+  const { notes, currentNote } = props
+  const { listWrapper, listOption, listTitle, listDescription, listData } =
+    styles
+
   return (
     <>
-      <Listbox value={selectedNote} onChange={setSelectedNote}>
-        <Listbox.Button>{selectedNote.title}</Listbox.Button>
-        <Listbox.Options>
-          {props.notes.map((item, key) => (
-            <Listbox.Option key={key} value={item}>
-              <div>
-                {item.title.replace(/(<([^>]+)>)/gi, '').substring(0, 15)}
-              </div>
-              <div>
-                {item.body.replace(/(<([^>]+)>)/gi, '').substring(0, 30)}
-              </div>
-              <span>{Moment(item.created_at).format('DD/MM')}</span>
+      <Listbox value={currentNote}>
+        <Listbox.Button>{notes.length} Notas</Listbox.Button>
+        <Listbox.Options className={listWrapper}>
+          {notes.map((item, key) => (
+            <Listbox.Option key={key} value={item} className={listOption}>
+              <h1 className={listTitle}>
+                {item.title.replace(/(<([^>]+)>)/gi, '').substring(0, 30)}
+              </h1>
+              <p className={listDescription}>
+                {item.body.replace(/(<([^>]+)>)/gi, '').substring(0, 40)}...
+              </p>
+              <span className={listData}>
+                Criado em {Moment(item.created_at).format('DD/MM')}
+              </span>
             </Listbox.Option>
           ))}
         </Listbox.Options>
