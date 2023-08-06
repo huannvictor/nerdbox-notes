@@ -5,3 +5,7 @@
 .menuItem {
   @apply self-start w-full;
 }
+
+.sidebarMenuBtn {
+  @apply mx-2;
+}
