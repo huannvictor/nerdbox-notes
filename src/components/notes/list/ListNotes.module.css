@@ -1,9 +1,27 @@
+.listHead {
+  @apply bg-indigo-400
+  rounded
+  mb-2
+  py-4
+  px-2;
+}
+
 .listWrapper {
-  @apply flex flex-col gap-2 divide-y;
+  @apply flex 
+  flex-col 
+  divide-y
+  divide-indigo-300
+  bg-indigo-400
+  rounded;
 }
 
 .listOption {
-  @apply flex flex-col;
+  @apply flex 
+  flex-col
+  py-4
+  px-2
+  cursor-pointer
+  hover:bg-indigo-300;
 }
 
 .listTitle {

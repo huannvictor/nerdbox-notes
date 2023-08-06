@@ -1,6 +1,5 @@
 'use client'
 
-import { Listbox } from '@headlessui/react'
 import Moment from 'moment'
 import styles from './ListNotes.module.css'
 
@@ -18,20 +17,26 @@ interface Props {
 }
 
 export default function ListNotes(props: Props) {
-  const { notes, currentNote } = props
-  const { listWrapper, listOption, listTitle, listDescription, listData } =
-    styles
+  const { notes } = props
+  const {
+    listHead,
+    listWrapper,
+    listOption,
+    listTitle,
+    listDescription,
+    listData,
+  } = styles
 
   return (
     <>
-      <Listbox value={currentNote}>
-        <Listbox.Button>{notes.length} Notas</Listbox.Button>
-        <Listbox.Options className={listWrapper}>
+      <div className="listBox">
+        <h1 className={listHead}>Você tem: {notes.length} Notas</h1>
+        <ul className={listWrapper}>
           {notes.map((item, key) => (
-            <Listbox.Option key={key} value={item} className={listOption}>
+            <li key={key} className={listOption}>
               <h1 className={listTitle}>
                 {item.title &&
-                  item.title.replace(/(<([^>]+)>)/gi, '').substring(0, 30)}
+                  item.title.replace(/(<([^>]+)>)/gi, '').substring(0, 20)}
               </h1>
               <p className={listDescription}>
                 {item.body &&
@@ -41,10 +46,10 @@ export default function ListNotes(props: Props) {
               <span className={listData}>
                 Criado em {Moment(item.created_at).format('DD/MM')}
               </span>
-            </Listbox.Option>
+            </li>
           ))}
-        </Listbox.Options>
-      </Listbox>
+        </ul>
+      </div>
     </>
   )
 }

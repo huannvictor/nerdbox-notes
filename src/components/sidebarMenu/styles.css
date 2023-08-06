@@ -1,5 +1,5 @@
 .bm-item-list {
-  @apply flex flex-col items-start gap-2 pt-4 pl-4;
+  @apply flex flex-col items-start gap-2 pt-4 px-4;
 }
 
 .notes {
