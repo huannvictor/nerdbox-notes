@@ -30,10 +30,13 @@ export default function ListNotes(props: Props) {
           {notes.map((item, key) => (
             <Listbox.Option key={key} value={item} className={listOption}>
               <h1 className={listTitle}>
-                {item.title.replace(/(<([^>]+)>)/gi, '').substring(0, 30)}
+                {item.title &&
+                  item.title.replace(/(<([^>]+)>)/gi, '').substring(0, 30)}
               </h1>
               <p className={listDescription}>
-                {item.body.replace(/(<([^>]+)>)/gi, '').substring(0, 40)}...
+                {item.body &&
+                  item.body.replace(/(<([^>]+)>)/gi, '').substring(0, 40)}
+                ...
               </p>
               <span className={listData}>
                 Criado em {Moment(item.created_at).format('DD/MM')}
