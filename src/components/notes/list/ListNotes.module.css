@@ -1,9 +1,31 @@
 .listHead {
-  @apply bg-indigo-400
+  @apply flex
+  items-center
+  justify-center
+  gap-2
+  bg-indigo-400
   rounded
   mb-2
   py-4
   px-2;
+}
+
+.createNoteBtn {
+  @apply flex
+  items-center
+  justify-center
+  gap-1
+  bg-purple-600
+  hover:bg-purple-500
+  rounded
+  p-1
+  w-full;
+}
+
+.listHeadTitle {
+  @apply flex
+  justify-center
+  w-full;
 }
 
 .listWrapper {

@@ -1,5 +1,6 @@
 'use client'
 
+import { PlusCircle } from '@phosphor-icons/react'
 import Moment from 'moment'
 import styles from './ListNotes.module.css'
 
@@ -14,12 +15,15 @@ interface Props {
   notes: Note[]
   selectNote: (prop: string) => void
   currentNote: Note | undefined
+  create: () => void
 }
 
 export default function ListNotes(props: Props) {
-  const { notes } = props
+  const { notes, create } = props
   const {
+    createNoteBtn,
     listHead,
+    listHeadTitle,
     listWrapper,
     listOption,
     listTitle,
@@ -30,7 +34,13 @@ export default function ListNotes(props: Props) {
   return (
     <>
       <div className="listBox">
-        <h1 className={listHead}>Você tem: {notes.length} Notas</h1>
+        <div className={listHead}>
+          <h1 className={listHeadTitle}>{notes.length} Notas</h1>
+          <button className={createNoteBtn} onClick={create}>
+            <PlusCircle size={20} />
+            Nova Nota
+          </button>
+        </div>
         <ul className={listWrapper}>
           {notes.map((item, key) => (
             <li key={key} className={listOption}>

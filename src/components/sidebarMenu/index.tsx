@@ -35,12 +35,16 @@ const SidebarMenu = (props: {
 
   async function fetchNotes() {
     const response = await NotesService.index()
-    console.log(response.data)
 
     if (response.data.length >= 1) {
       setNotes(response.data.reverse())
       setCurrentNote(response.data[0])
     }
+  }
+
+  const createNote = async () => {
+    await NotesService.create()
+    fetchNotes()
   }
 
   const selectNote = (id: string): void => {
@@ -69,6 +73,7 @@ const SidebarMenu = (props: {
           notes={notes}
           selectNote={selectNote}
           currentNote={currentNote}
+          create={createNote}
         />
       </div>
     </Menu>
