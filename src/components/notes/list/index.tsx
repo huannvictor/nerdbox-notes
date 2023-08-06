@@ -36,41 +36,39 @@ export default function ListNotes(props: Props) {
   } = styles
 
   return (
-    <>
-      <div className="listBox">
-        <div className={listHead}>
-          <h1 className={listHeadTitle}>{notes.length} Notas</h1>
-          <button className={createNoteBtn} onClick={createNote}>
-            <PlusCircle size={20} />
-            Nova Nota
-          </button>
-        </div>
-        <ul className={listWrapper}>
-          {notes.map((item, key) => (
-            <li key={key} className={listOption}>
-              <div className={listOptionHeader}>
-                <h1 className={listTitle}>
-                  {item.title && item.title.replace(/(<([^>]+)>)/gi, '')}
-                </h1>
-                <button
-                  className={deleteBtn}
-                  onClick={() => deleteNote(item._id)}
-                >
-                  <XCircle size={20} weight="duotone" />
-                </button>
-              </div>
-              <p className={listDescription}>
-                {item.body &&
-                  item.body.replace(/(<([^>]+)>)/gi, '').substring(0, 40)}
-                ...
-              </p>
-              <span className={listData}>
-                Criado em {Moment(item.createNote_at).format('DD/MM')}
-              </span>
-            </li>
-          ))}
-        </ul>
+    <div className="listBox">
+      <div className={listHead}>
+        <h1 className={listHeadTitle}>{notes.length} Notas</h1>
+        <button className={createNoteBtn} onClick={createNote}>
+          <PlusCircle size={20} />
+          Nova Nota
+        </button>
       </div>
-    </>
+      <ul className={listWrapper}>
+        {notes.map((item, key) => (
+          <li key={key} className={listOption}>
+            <div className={listOptionHeader}>
+              <h1 className={listTitle}>
+                {item.title && item.title.replace(/(<([^>]+)>)/gi, '')}
+              </h1>
+              <button
+                className={deleteBtn}
+                onClick={() => deleteNote(item._id)}
+              >
+                <XCircle size={20} weight="duotone" />
+              </button>
+            </div>
+            <p className={listDescription}>
+              {item.body &&
+                item.body.replace(/(<([^>]+)>)/gi, '').substring(0, 40)}
+              ...
+            </p>
+            <span className={listData}>
+              Criado em {Moment(item.createNote_at).format('DD/MM')}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

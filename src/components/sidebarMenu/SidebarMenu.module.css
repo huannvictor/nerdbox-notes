@@ -3,5 +3,5 @@
 }
 
 .menuItem {
-  @apply self-start;
+  @apply self-start w-full;
 }

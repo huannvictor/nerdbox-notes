@@ -40,6 +40,8 @@ const SidebarMenu = (props: {
     if (response.data.length >= 1) {
       setNotes(response.data.reverse())
       setCurrentNote(response.data[0])
+    } else {
+      setNotes([])
     }
   }
 
