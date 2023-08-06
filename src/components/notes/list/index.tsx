@@ -1,6 +1,6 @@
 'use client'
 
-import { PlusCircle } from '@phosphor-icons/react'
+import { PlusCircle, XCircle } from '@phosphor-icons/react'
 import Moment from 'moment'
 import styles from './ListNotes.module.css'
 
@@ -8,27 +8,31 @@ interface Note {
   title: string
   body: string
   id: string
-  created_at: string
+  _id: string
+  createNote_at: string
 }
 
 interface Props {
   notes: Note[]
-  selectNote: (prop: string) => void
+  selectNote: (prop: string) => any
   currentNote: Note | undefined
-  create: () => void
+  createNote: () => void
+  deleteNote: (prop: string) => void
 }
 
 export default function ListNotes(props: Props) {
-  const { notes, create } = props
+  const { notes, createNote, deleteNote } = props
   const {
     createNoteBtn,
     listHead,
     listHeadTitle,
     listWrapper,
     listOption,
+    listOptionHeader,
     listTitle,
     listDescription,
     listData,
+    deleteBtn,
   } = styles
 
   return (
@@ -36,7 +40,7 @@ export default function ListNotes(props: Props) {
       <div className="listBox">
         <div className={listHead}>
           <h1 className={listHeadTitle}>{notes.length} Notas</h1>
-          <button className={createNoteBtn} onClick={create}>
+          <button className={createNoteBtn} onClick={createNote}>
             <PlusCircle size={20} />
             Nova Nota
           </button>
@@ -44,16 +48,24 @@ export default function ListNotes(props: Props) {
         <ul className={listWrapper}>
           {notes.map((item, key) => (
             <li key={key} className={listOption}>
-              <h1 className={listTitle}>
-                {item.title && item.title.replace(/(<([^>]+)>)/gi, '')}
-              </h1>
+              <div className={listOptionHeader}>
+                <h1 className={listTitle}>
+                  {item.title && item.title.replace(/(<([^>]+)>)/gi, '')}
+                </h1>
+                <button
+                  className={deleteBtn}
+                  onClick={() => deleteNote(item._id)}
+                >
+                  <XCircle size={20} weight="duotone" />
+                </button>
+              </div>
               <p className={listDescription}>
                 {item.body &&
                   item.body.replace(/(<([^>]+)>)/gi, '').substring(0, 40)}
                 ...
               </p>
               <span className={listData}>
-                Criado em {Moment(item.created_at).format('DD/MM')}
+                Criado em {Moment(item.createNote_at).format('DD/MM')}
               </span>
             </li>
           ))}

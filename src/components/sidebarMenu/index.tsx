@@ -13,8 +13,8 @@ interface Note {
   title: string
   body: string
   id: string
-  _id?: string
-  created_at: string
+  _id: string
+  createNote_at: string
 }
 
 const SidebarMenu = (props: {
@@ -26,7 +26,8 @@ const SidebarMenu = (props: {
     title: '',
     body: '',
     id: '',
-    created_at: '',
+    _id: '',
+    createNote_at: '',
   })
 
   useEffect(() => {
@@ -47,11 +48,19 @@ const SidebarMenu = (props: {
     fetchNotes()
   }
 
-  const selectNote = (id: string): void => {
+  const selectNote = (id: string) => {
     const note: Note | undefined = notes.find((note) => {
       return note._id === id
     })
+
+    console.log('selectNote', note)
+
     setCurrentNote(note)
+  }
+
+  const deleteNote = async (id: string) => {
+    await NotesService.delete(id)
+    fetchNotes()
   }
 
   return (
@@ -73,7 +82,8 @@ const SidebarMenu = (props: {
           notes={notes}
           selectNote={selectNote}
           currentNote={currentNote}
-          create={createNote}
+          createNote={createNote}
+          deleteNote={deleteNote}
         />
       </div>
     </Menu>
