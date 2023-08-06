@@ -35,8 +35,7 @@ export default function ListNotes(props: Props) {
           {notes.map((item, key) => (
             <li key={key} className={listOption}>
               <h1 className={listTitle}>
-                {item.title &&
-                  item.title.replace(/(<([^>]+)>)/gi, '').substring(0, 20)}
+                {item.title && item.title.replace(/(<([^>]+)>)/gi, '')}
               </h1>
               <p className={listDescription}>
                 {item.body &&

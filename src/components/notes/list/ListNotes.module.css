@@ -20,12 +20,13 @@
   flex-col
   py-4
   px-2
-  cursor-pointer
+  cursor-default
   hover:bg-indigo-300;
 }
 
 .listTitle {
-  @apply text-base;
+  @apply text-lg
+  font-bold;
 }
 
 .listDescription {
@@ -33,5 +34,7 @@
 }
 
 .listData {
-  @apply text-xs;
+  @apply text-xs
+  italic
+  self-end;
 }
