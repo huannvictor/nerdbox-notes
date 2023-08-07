@@ -5,13 +5,13 @@ import { List } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
 import { push as Menu } from 'react-burger-menu'
 import ListNotes from '../notes/list'
-import customStyle from './SidebarMenu.module.css'
+import customStyle from './Notes.module.css'
 import Editor from './editor'
 import './styles.css'
 
-const { menu, menuItem, sidebarMenuBtn } = customStyle
+const { menu, menuItem, sidebarMenuBtn, notesEditor } = customStyle
 
-interface Note {
+export interface Note {
   title: string
   body: string
   id: string
@@ -99,8 +99,8 @@ export default function Notes() {
         {isOpen === false && <List size={24} />}
       </button>
 
-      <div className="notes-editor" id="notes-editor">
-        <Editor />
+      <div className={notesEditor} id="notes-editor">
+        <Editor currentNote={currentNote} />
       </div>
     </>
   )

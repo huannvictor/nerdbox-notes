@@ -1,0 +1,19 @@
+.menu {
+  @apply bg-indigo-500;
+}
+
+.menuItem {
+  @apply self-start w-full;
+}
+
+.sidebarMenuBtn {
+  @apply mx-4
+  pt-4
+  self-start;
+}
+
+.notesEditor {
+  @apply bg-indigo-100
+  text-purple-800
+  mt-4;
+}
