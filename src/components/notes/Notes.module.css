@@ -3,6 +3,7 @@
 }
 
 .menuItem {
+  height: calc(100vh - 64px);
   @apply self-start w-full;
 }
 
@@ -15,5 +16,7 @@
 .notesEditor {
   @apply bg-indigo-100
   text-purple-800
-  mt-4;
+  m-4
+  w-full;
+  height: calc(100vh - 64px);
 }
