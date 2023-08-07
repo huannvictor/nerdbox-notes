@@ -9,3 +9,7 @@
 .notes {
   @apply flex w-full mt-0 ml-0 mr-0;
 }
+
+.quill {
+  @apply bg-indigo-100 text-purple-800;
+}
