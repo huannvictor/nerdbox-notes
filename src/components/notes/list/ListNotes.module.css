@@ -1,3 +1,7 @@
+.listBox {
+  height: calc(100vh - 64px);
+}
+
 .listHead {
   @apply flex
   items-center
@@ -30,12 +34,8 @@
 }
 
 .listWrapper {
-  @apply flex 
-  flex-col 
-  divide-y
-  divide-indigo-300
-  bg-indigo-400
-  rounded;
+  @apply flex flex-col divide-y divide-indigo-300
+    bg-indigo-400 rounded;
 }
 
 .listOption {

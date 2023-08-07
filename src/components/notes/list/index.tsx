@@ -23,6 +23,7 @@ interface Props {
 export default function ListNotes(props: Props) {
   const { notes, createNote, deleteNote } = props
   const {
+    listBox,
     createNoteBtn,
     listHead,
     listHeadTitle,
@@ -36,7 +37,7 @@ export default function ListNotes(props: Props) {
   } = styles
 
   return (
-    <div className="listBox">
+    <div className={listBox}>
       <div className={listHead}>
         <h1 className={listHeadTitle}>{notes.length} Notas</h1>
         <button className={createNoteBtn} onClick={createNote}>

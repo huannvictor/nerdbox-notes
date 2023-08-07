@@ -1,5 +1,5 @@
 .bm-menu {
-  height: calc(100vh - 64px);
+  height: calc(100vh - 64px) !important;
 }
 
 .bm-item-list {
@@ -8,8 +8,4 @@
 
 .notes {
   @apply flex w-full mt-0 ml-0 mr-0;
-}
-
-.bm-overlay {
-  background: rgba(0 0 0 0%);
 }

@@ -3,7 +3,6 @@
 }
 
 .menuItem {
-  height: calc(100vh - 64px);
   @apply self-start w-full;
 }
 
