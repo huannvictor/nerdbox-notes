@@ -13,7 +13,7 @@ interface Props {
 
 export default function Editor(props: Props) {
   const [currentContent, setCurrentContent] = useState<string>('')
-  const [timer, setTimer] = useState<number | undefined | null>(null)
+  const [timer, setTimer] = useState<number | undefined>()
 
   const updateNote = (content: string) => {
     const title = content.replace(/(<([^>]+)>)/gi, '').slice(0, 30)
@@ -21,7 +21,6 @@ export default function Editor(props: Props) {
   }
 
   const handleChange = (content: string, delta: any, source: any) => {
-    console.log('handleChange')
     clearTimeout(timer)
 
     if (source === 'user') {
