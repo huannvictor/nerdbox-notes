@@ -15,7 +15,7 @@ interface Note {
 interface Props {
   notes: Note[]
   selectNote: (prop: string) => any
-  currentNote: Note | undefined
+  currentNote: Note
   createNote: () => void
   deleteNote: (prop: string) => void
 }

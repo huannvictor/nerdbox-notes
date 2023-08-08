@@ -22,7 +22,7 @@ export interface Note {
 export default function Notes() {
   const [isOpen, setIsOpen] = useState(false)
   const [notes, setNotes] = useState<Note[]>([])
-  const [currentNote, setCurrentNote] = useState<Note | undefined>({
+  const [currentNote, setCurrentNote] = useState({
     title: '',
     body: '',
     id: '',
@@ -56,19 +56,31 @@ export default function Notes() {
   }
 
   const selectNote = (id: string) => {
-    const note: Note | undefined = notes.find((note) => {
-      return note._id === id
+    const selectedNote = notes.find((selectedNote) => {
+      return selectedNote._id === id
     })
 
-    console.log('selectNote', note)
-
-    setCurrentNote(note)
+    setCurrentNote(selectedNote)
   }
 
   const deleteNote = async (id: string) => {
     await NotesService.delete(id)
     fetchNotes()
   }
+
+  const updateNote = async (
+    oldNote: Note,
+    params: { title: string; body: string },
+  ) => {
+    const updatedNote = await NotesService.update(oldNote._id, params)
+    const index = notes.indexOf(oldNote)
+    const newNotes = notes
+
+    newNotes[index] = updatedNote.data
+    setNotes(newNotes)
+    setCurrentNote(updatedNote.data)
+  }
+
   return (
     <>
       <Menu
@@ -100,7 +112,7 @@ export default function Notes() {
       </button>
 
       <div className={notesEditor} id="notes-editor">
-        <Editor currentNote={currentNote} />
+        <Editor note={currentNote} updateNote={updateNote} />
       </div>
     </>
   )
