@@ -7,6 +7,7 @@ import { push as Menu } from 'react-burger-menu'
 import ListNotes from '../notes/list'
 import customStyle from './Notes.module.css'
 import Editor from './editor'
+import Search from './search'
 import './styles.css'
 
 const { menu, menuItem, sidebarMenuBtn, notesEditor } = customStyle
@@ -22,7 +23,7 @@ export interface Note {
 export default function Notes() {
   const [isOpen, setIsOpen] = useState(false)
   const [notes, setNotes] = useState<Note[]>([])
-  const [currentNote, setCurrentNote] = useState({
+  const [currentNote, setCurrentNote] = useState<Note>({
     title: '',
     body: '',
     id: '',
@@ -55,14 +56,6 @@ export default function Notes() {
     fetchNotes()
   }
 
-  const selectNote = (id: string) => {
-    const selectedNote = notes.find((selectedNote) => {
-      return selectedNote._id === id
-    })
-
-    setCurrentNote(selectedNote)
-  }
-
   const deleteNote = async (id: string) => {
     await NotesService.delete(id)
     fetchNotes()
@@ -81,6 +74,20 @@ export default function Notes() {
     setCurrentNote(updatedNote.data)
   }
 
+  const searchNotes = async (query: string) => {
+    const response = await NotesService.search(query)
+    setNotes(response.data)
+  }
+
+  const selectNote = (id: string) => {
+    const selectedNote = notes.find((selectedNote) => {
+      return selectedNote._id === id
+    })
+
+    selectedNote !== undefined && setCurrentNote(selectedNote)
+
+  }
+
   return (
     <>
       <Menu
@@ -94,8 +101,9 @@ export default function Notes() {
         className={menu}
       >
         <div className={menuItem}>
-          <p>Search</p>
+          <Search searchNotes={searchNotes} fetchNotes={fetchNotes} />
         </div>
+
         <div className={menuItem}>
           <ListNotes
             notes={notes}

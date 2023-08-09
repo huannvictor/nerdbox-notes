@@ -1,0 +1,27 @@
+.searchWrapper {
+  @apply flex
+  items-center
+  justify-between
+  gap-2;
+}
+
+.input {
+  @apply w-full 
+  border-none 
+  py-2 
+  pl-3 
+  pr-10 
+  rounded
+  text-sm 
+  leading-5 
+  text-purple-900 
+  focus-visible:ring-purple-700
+  focus-visible:ring-2
+  outline-0;
+}
+
+.clearBtn {
+  @apply font-black
+  text-red-100
+  hover:text-purple-300;
+}

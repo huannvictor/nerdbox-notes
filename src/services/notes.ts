@@ -1,4 +1,4 @@
-import Api from './api'
+import Api from './api';
 
 const NotesService = {
   index: () =>
@@ -19,6 +19,10 @@ const NotesService = {
     }),
   update: (id: string, params: { title: string; body: string }) =>
     Api.put(`/notes/${id}`, params, {
+      headers: { 'x-access-token': localStorage.getItem('token') },
+    }),
+  search: (query: string) =>
+    Api.get(`/notes/search?query=${query}`, {
       headers: { 'x-access-token': localStorage.getItem('token') },
     }),
 }
