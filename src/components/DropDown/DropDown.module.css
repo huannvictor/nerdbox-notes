@@ -30,7 +30,8 @@
   absolute
   p-1
   rounded-md
-  bg-indigo-500;
+  bg-indigo-500
+  z-50;
 }
 
 .dropdownContent .dropdownItem {
