@@ -43,7 +43,7 @@
   flex-col
   py-4
   px-2
-  cursor-default
+  cursor-pointer
   hover:bg-indigo-300/30;
 }
 

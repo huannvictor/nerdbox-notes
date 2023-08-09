@@ -84,8 +84,7 @@ export default function Notes() {
       return selectedNote._id === id
     })
 
-    selectedNote !== undefined && setCurrentNote(selectedNote)
-
+    if (selectedNote !== undefined) setCurrentNote(selectedNote)
   }
 
   return (
@@ -108,7 +107,7 @@ export default function Notes() {
           <ListNotes
             notes={notes}
             selectNote={selectNote}
-            currentNote={currentNote}
+            currentNote={setCurrentNote}
             createNote={createNote}
             deleteNote={deleteNote}
           />

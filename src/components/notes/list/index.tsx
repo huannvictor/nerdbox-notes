@@ -15,13 +15,13 @@ interface Note {
 interface Props {
   notes: Note[]
   selectNote: (prop: string) => any
-  currentNote: Note
+  currentNote: (prop: Note) => void
   createNote: () => void
   deleteNote: (prop: string) => void
 }
 
 export default function ListNotes(props: Props) {
-  const { notes, createNote, deleteNote } = props
+  const { notes, createNote, deleteNote, selectNote, currentNote } = props
   const {
     listBox,
     createNoteBtn,
@@ -47,7 +47,15 @@ export default function ListNotes(props: Props) {
       </div>
       <ul className={listWrapper}>
         {notes.map((item, key) => (
-          <li key={key} className={listOption}>
+          <li
+            key={key}
+            className={listOption}
+            onClick={() => {
+              selectNote(item._id)
+              currentNote(item)
+            }}
+
+          >
             <div className={listOptionHeader}>
               <h1 className={listTitle}>
                 {item.title && item.title.replace(/(<([^>]+)>)/gi, '')}
