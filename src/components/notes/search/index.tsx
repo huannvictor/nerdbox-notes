@@ -1,24 +1,22 @@
 'use client'
 
-import { XCircle } from "@phosphor-icons/react"
+import { Eraser } from "@phosphor-icons/react"
 import Link from "next/link"
 import { useState } from "react"
-import styles from './Search.module.css'
+import './styles.css'
 
 interface Props {
   searchNotes: (query: string) => void
   fetchNotes: () => void
 }
 
-const { searchWrapper, input, clearBtn } = styles
-
 export default function Search(props: Props) {
   const [query, setQuery] = useState('')
 
   return (
-    <div className={searchWrapper}>
+    <div className={'searchWrapper'}>
       <input
-        className={input}
+        className={'input'}
         type="text"
         name={query}
         value={query}
@@ -27,14 +25,14 @@ export default function Search(props: Props) {
         onKeyDown={(e) => e.key === 'Enter' && props.searchNotes(query)}
       />
       <Link
-        className={clearBtn}
+        className={'clearBtn'}
         href="#"
         onClick={() => {
           props.fetchNotes()
           setQuery('')
         }}
       >
-        <XCircle size={32} weight="duotone" />
+        <Eraser size={32} weight="duotone" />
       </Link>
     </div>
   )
