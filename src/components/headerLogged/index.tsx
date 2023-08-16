@@ -6,7 +6,7 @@ import LogoWhite from '../../assets/images/logoWhite.svg'
 import DropDown from '../DropDown'
 import styles from './HeaderLogged.module.css'
 
-const { header, brand, logo, title, navBar } = styles
+const { headerAuth, brandAuth, logoAuth, titleAuth, navBarAuth } = styles
 
 interface UserDataType {
   created_at: string
@@ -23,14 +23,14 @@ export default function HeaderLogged() {
 
   return (
     <>
-      <div className={header}>
-        <div className={navBar}>
-          <Link href="/" className={brand}>
-            <Image alt="NerdBox Logo" src={LogoWhite} className={logo} />
-            <span className={title}>Bem vindo {userData.name}</span>
+      <div className={headerAuth}>
+        <div className={navBarAuth}>
+          <Link href="/" className={brandAuth}>
+            <Image alt="NerdBox Logo" src={LogoWhite} className={logoAuth} />
+            <span className={titleAuth}>Bem vindo {userData.name}</span>
           </Link>
         </div>
-        <nav className={navBar}>
+        <nav className={navBarAuth}>
           <DropDown
             userName={userData.name}
           />

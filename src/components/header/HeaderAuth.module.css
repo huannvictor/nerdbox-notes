@@ -4,7 +4,8 @@
   justify-between 
   px-3
   py-2
-  bg-purple-600;
+  min-h-[4.5rem]
+  bg-purple-400;
 }
 
 .brandAuth {

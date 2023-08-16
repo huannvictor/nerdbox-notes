@@ -4,6 +4,7 @@
   justify-between 
   px-3
   py-2
+  min-h-[4.5rem]
   bg-purple-100;
 }
 
@@ -44,6 +45,59 @@
 }
 
 .menu {
+  @apply text-purple-800 
+  text-2xl
+  sm:hidden;
+}
+
+.headerAuth {
+  @apply flex 
+  items-center 
+  justify-between 
+  px-3
+  py-2
+  bg-purple-600;
+}
+
+.brandAuth {
+  @apply flex 
+    flex-row 
+    justify-between 
+    gap-2 
+    sm:text-xl text-lg
+    align-middle 
+    font-bold;
+}
+
+.logoAuth {
+  @apply h-8 w-8;
+}
+
+.titleAuth {
+  @apply text-purple-100
+  text-base
+  sm:text-lg;
+}
+
+.navBarAuth {
+  @apply flex
+  gap-2
+  items-center;
+}
+
+.navItemAuth {
+  @apply text-purple-800
+  hover:text-purple-950
+  hover:bg-indigo-300
+  hidden
+  sm:flex 
+  flex-col 
+  items-center
+  p-2
+  rounded;
+}
+
+.menuAuth {
   @apply text-purple-800 
   text-2xl
   sm:hidden;
