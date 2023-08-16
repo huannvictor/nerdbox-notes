@@ -1,5 +1,6 @@
 'use client'
 
+import { checkUserAuthenticated } from '@/services/isUserAuthenticated'
 import UsersService from '@/services/users'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,7 +12,6 @@ import LoginButton from '../loginButton'
 import ModalHandler from '../modalHandler'
 import stylesNotAuth from './Header.module.css'
 import stylesAuth from './HeaderAuth.module.css'
-
 
 const { header, brand, logo, navBar, navItem, cta, menu } = stylesNotAuth
 const { headerAuth, brandAuth, logoAuth, titleAuth, navBarAuth } = stylesAuth
@@ -28,9 +28,8 @@ interface UserDataType {
   _id: string
 }
 
-export default function Header(props: Props) {
-
-  const isAuth = props.userAuth
+export default function Header() {
+  const isAuth = checkUserAuthenticated()
   const userData = UsersService.currentUser()
 
   return (
@@ -41,7 +40,7 @@ export default function Header(props: Props) {
             <div className={navBarAuth}>
               <Link href="/" className={brandAuth}>
                 <Image alt="NerdBox Logo" src={LogoWhite} className={logoAuth} />
-                <span className={titleAuth}>Bem vindo, {userData.name}</span>
+                <span className={titleAuth}>Bem vindo!</span>
               </Link>
             </div>
           ) : (

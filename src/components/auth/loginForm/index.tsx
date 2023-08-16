@@ -63,6 +63,10 @@ export default function LoginForm(): ReactElement {
     }
   }
 
+  const refreshPage = () => {
+    router.refresh()
+  }
+
   useEffect(() => {
     if (redirectToNotes) router.push('/notes')
   }, [redirectToNotes, router])
@@ -104,7 +108,11 @@ export default function LoginForm(): ReactElement {
           <Link href="/register" className={btn}>
             Ainda não tenho conta
           </Link>
-          <button type="submit" className={[btn, btnCta].join(' ')}>
+          <button
+            type="submit"
+            className={[btn, btnCta].join(' ')}
+            onClick={refreshPage}
+          >
             Login
           </button>
         </div>

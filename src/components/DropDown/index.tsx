@@ -29,8 +29,8 @@ const DropDown = (props: Props) => {
   }
 
   const handleLogOut = () => {
-    UsersService.logout()
     push('/')
+    UsersService.logout()
   }
 
   return (
