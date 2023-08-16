@@ -16,7 +16,11 @@ const {
   dropdownItem,
 } = styles
 
-const DropDown = () => {
+interface Props {
+  userName: string
+}
+
+const DropDown = (props: Props) => {
   const [menuIsActive, setMenuIsActive] = useState(false)
   const { push } = useRouter()
 
@@ -33,7 +37,7 @@ const DropDown = () => {
     <div className={menuIsActive ? [dropdown, isActive].join(' ') : dropdown}>
       <div className={dropdownTrigger}>
         <button className={dropdownBtn} onClick={handleClick}>
-          <span>Huann Almeida</span>
+          <span>{props.userName}</span>
           <CaretUpDown />
         </button>
         <div className={dropdownContent}>

@@ -12,6 +12,12 @@ type loginDataProps = {
 }
 
 const UsersService = {
+  currentUser: () => {
+    const userData = localStorage.getItem('user')
+    const user = userData && JSON.parse(userData)
+    return user
+  },
+
   register: (registerData: registerDataProps) =>
     Api.post('/users/register', registerData),
 
