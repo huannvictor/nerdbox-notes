@@ -27,12 +27,12 @@ export default function HeaderLogged() {
         <div className={navBarAuth}>
           <Link href="/" className={brandAuth}>
             <Image alt="NerdBox Logo" src={LogoWhite} className={logoAuth} />
-            <span className={titleAuth}>Bem vindo {userData.name}</span>
+            <span className={titleAuth}>Bem vindo! </span>
           </Link>
         </div>
         <nav className={navBarAuth}>
           <DropDown
-            userName={userData.name}
+            userName={userData ? userData.name : "Nome Usuário"}
           />
         </nav>
       </div>

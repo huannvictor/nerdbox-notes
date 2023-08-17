@@ -4,6 +4,7 @@
   justify-between 
   px-3
   py-2
+  min-h-[4.5rem]
   bg-purple-600;
 }
 

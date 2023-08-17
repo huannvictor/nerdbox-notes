@@ -13,6 +13,8 @@ export default function UserPageLayout({
   const pathName = usePathname()
   const isPublicPage = checkIsPublicRoute(pathName)
 
+  console.log(pathName)
+
   return (
     <>
       {isPublicPage && children}
