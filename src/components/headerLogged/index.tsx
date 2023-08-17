@@ -23,7 +23,7 @@ export default function HeaderLogged() {
 
   return (
     <>
-      <div className={headerAuth}>
+      <header className={headerAuth}>
         <div className={navBarAuth}>
           <Link href="/" className={brandAuth}>
             <Image alt="NerdBox Logo" src={LogoWhite} className={logoAuth} />
@@ -35,7 +35,7 @@ export default function HeaderLogged() {
             userName={userData ? userData.name : "Nome Usuário"}
           />
         </nav>
-      </div>
+      </header>
     </>
   )
 }

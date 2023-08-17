@@ -17,7 +17,8 @@
 
 .dropdown .dropdownContent {
   @apply invisible
-  absolute;
+  absolute
+  right-2;
 }
 
 .dropdown.isActive .dropdownContent {
@@ -31,7 +32,8 @@
   p-1
   rounded-md
   bg-indigo-500
-  z-50;
+  z-50
+  right-2;
 }
 
 .dropdownContent .dropdownItem {
