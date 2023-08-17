@@ -4,6 +4,7 @@ import { checkUserAuthenticated } from '@/services/isUserAuthenticated'
 import UsersService from '@/services/users'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import LogoImg from '../../assets/images/logo.svg'
 import LogoWhite from '../../assets/images/logoWhite.svg'
 import DropDown from '../DropDown'
@@ -31,9 +32,29 @@ interface UserDataType {
 export default function Header() {
   const isAuth = checkUserAuthenticated()
   const userData = UsersService.currentUser()
+  const length = window.localStorage.length
+  const [newLocalStorageLength, setNewLocalStorageLength] = useState<number>()
+
+  useEffect(() => {
+
+    // const getLocalStorageLength = () => {
+    //   const length = window.localStorage.length
+    //   return length
+    // }
+
+    const handleSetNewLocalStorage = () => {
+      setNewLocalStorageLength(length)
+      return newLocalStorageLength
+    }
+
+    console.log('useefect scope', length)
+
+    window.addEventListener('storage', handleSetNewLocalStorage)
+  }, [length, newLocalStorageLength])
 
   return (
     <div className={isAuth ? headerAuth : header}>
+      <h1 className='text-slate-800'>LocalStorage: {newLocalStorageLength}</h1>
       {
         isAuth
           ? (
