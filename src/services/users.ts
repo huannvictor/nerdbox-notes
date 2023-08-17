@@ -31,15 +31,6 @@ const UsersService = {
     localStorage.removeItem('user')
     localStorage.removeItem('token')
   },
-
-  isUserAuthenticated: (): boolean => {
-    if (typeof window !== 'undefined') {
-      const userToken = localStorage.getItem('token')
-      return !!userToken
-    }
-
-    return false
-  },
 }
 
 export default UsersService

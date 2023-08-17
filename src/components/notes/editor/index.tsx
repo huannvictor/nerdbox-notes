@@ -25,7 +25,7 @@ export default function Editor(props: Props) {
 
     if (source === 'user') {
       setCurrentContent(content)
-      setTimer(window.setTimeout(() => updateNote(content), 2000))
+      if (typeof window !== 'undefined') setTimer(window.setTimeout(() => updateNote(content), 2000))
     }
   }
 

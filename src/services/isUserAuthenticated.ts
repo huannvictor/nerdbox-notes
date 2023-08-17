@@ -1,6 +1,10 @@
 'use client'
 
 export const checkUserAuthenticated = () => {
-  const userToken = window.localStorage.getItem('token')
-  return !!userToken
+  if (typeof window !== 'undefined') {
+    const userToken = window.localStorage.getItem('token')
+    return !!userToken
+  }
+
+  return false
 }
