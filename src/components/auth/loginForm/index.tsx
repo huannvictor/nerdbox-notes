@@ -63,7 +63,7 @@ export default function LoginForm(): ReactElement {
     }
   }
 
-  const refreshPage = () => {
+  const refreshPage = (): void => {
     router.refresh()
   }
 
