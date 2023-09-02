@@ -1,7 +1,7 @@
 import LoginForm from '@/components/auth/loginForm'
 import Image from 'next/image'
 import logoImage from '../../../assets/images/logo.png'
-import styles from '../AuthStyles.module.css'
+import styles from '../../ScreensStyles.module.css'
 
 const { section, cardContainer, card, logo, title, divider } = styles
 
