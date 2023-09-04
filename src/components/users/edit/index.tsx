@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import styles from '../UserForm.module.css'
 
 const {
@@ -13,6 +16,8 @@ const {
 } = styles
 
 export default function UserEditForm() {
+  const [email, setEmail] = useState('')
+  const [userName, setUserName] = useState('')
   return (
     <div className={formContainer}>
       {/* <h1 className={title}>TÍTULO</h1> */}
