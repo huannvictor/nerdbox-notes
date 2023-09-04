@@ -11,6 +11,15 @@ type loginDataProps = {
   password: string
 }
 
+type updateUserNameProps = {
+  newName: string
+  email: string
+}
+
+type updateUserPasswordProps = {
+  newPassWord: string
+}
+
 const UsersService = {
   currentUser: () => {
     const userData = localStorage.getItem('user')
@@ -31,6 +40,29 @@ const UsersService = {
     localStorage.removeItem('user')
     localStorage.removeItem('token')
   },
+
+  update: async (params: updateUserNameProps) => {
+    const response = await Api.put('/users', params, {
+      headers: {'x-access-token': localStorage.getItem('token')}
+    })
+
+    localStorage.setItem('user', JSON.stringify(response.data))
+  }, 
+
+  updatePassword:async (params:updateUserPasswordProps) => {
+    await Api.put('/users/password', params, {
+      headers: {'x-access-token': localStorage.getItem('token')}
+    })
+  },
+
+  delete: async () => {
+    await Api.delete('/users', {
+      headers: {'x-access-token': localStorage.getItem('token')}
+    })
+
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+  }
 }
 
 export default UsersService
