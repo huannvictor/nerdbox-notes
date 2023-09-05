@@ -1,6 +1,10 @@
 'use client'
 
+import Status from '@/components/status'
+import UsersService from '@/services/users'
+import { useState } from 'react'
 import styles from '../UserForm.module.css'
+import UpdateButton from '../updateBtn'
 
 const {
   formContainer,
@@ -15,9 +19,24 @@ const {
 } = styles
 
 export default function PasswordEditForm() {
-
+  const [password, setPassword] = useState('')
+  const [passwordConfirmation, setPasswordConfirmation] = useState('')
+  const [status, setStatus] = useState<string | null>(null)
+  
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
+
+    if (password == passwordConfirmation ) {
+      try {
+        await UsersService.updatePassword({newPassWord: password})
+        setStatus('success')
+      } catch (error) {
+        console.log(error)
+        setStatus('error')
+      }
+    }
+
+    if (password !== passwordConfirmation) setStatus('error_confirmation')
   }
   
   return (
@@ -30,9 +49,11 @@ export default function PasswordEditForm() {
             </label>
             <input
               type="password"
+              value={password}
               id="userPassword"
               placeholder="Altere sua senha"
               autoComplete='off'
+              onChange={e => setPassword(e.target.value)}
             />
           </fieldset>
 
@@ -42,11 +63,17 @@ export default function PasswordEditForm() {
             </label>
             <input
               type="text"
+              value={passwordConfirmation}
               id="ConfirmUserPassword"
               placeholder="Confirme sua nova senha"
               autoComplete='off'
+              onChange={e => setPasswordConfirmation(e.target.value)}
             />
           </fieldset>
+
+          <Status status={status} />
+
+          <UpdateButton text='Atualizar Senha' />
 
           <fieldset className={field}>
             <span>Deletar sua conta:</span>

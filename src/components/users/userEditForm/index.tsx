@@ -1,8 +1,10 @@
 'use client'
 
+import Status from '@/components/status'
 import UsersService from '@/services/users'
 import { useEffect, useState } from 'react'
 import styles from '../UserForm.module.css'
+import UpdateButton from '../updateBtn'
 
 const {
   formContainer,
@@ -82,24 +84,9 @@ export default function UserEditForm() {
             />
           </fieldset>
 
-          <fieldset className={field}>
-            <button className={btn}>
-              Atualizar dados
-            </button>
-          </fieldset>
+          <Status status={status}/>
 
-          {status === 'success' &&
-            <span className='text-emerald-500 text-xs text-center'>
-              Dados alterados com sucesso
-            </span>
-          }
-
-          {status === 'error' && 
-            <span className='text-rose-500 text-xs text-center'>
-              Erro ao alterar dados
-            </span>
-          }
-
+          <UpdateButton text='Atualizar Email' />
         </div>
       </form>
     </div>
