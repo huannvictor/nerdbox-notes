@@ -1,3 +1,4 @@
+import DeleteAccount from '@/components/users/deleteAccount';
 import PasswordEditForm from '@/components/users/passwordEditForm';
 import UserEditForm from '@/components/users/userEditForm';
 import Image from 'next/image';
@@ -16,6 +17,7 @@ export default function UserEditScreen () {
         </div>
         <UserEditForm />
         <PasswordEditForm />
+        <DeleteAccount />
       </div>
     </section>
   )

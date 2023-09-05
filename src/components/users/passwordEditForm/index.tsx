@@ -74,13 +74,6 @@ export default function PasswordEditForm() {
           <Status status={status} />
 
           <UpdateButton text='Atualizar Senha' />
-
-          <fieldset className={field}>
-            <span>Deletar sua conta:</span>
-            <button className={btn}>
-              Deletar
-            </button>
-          </fieldset>
         </div>
       </form>
     </div>
