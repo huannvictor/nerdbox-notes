@@ -1,5 +1,6 @@
 'use client'
 
+import UsersService from '@/services/users'
 import { useEffect, useState } from 'react'
 import styles from '../UserForm.module.css'
 
@@ -16,7 +17,7 @@ const {
 } = styles
 
 export default function UserEditForm() {
-  const [userName, setUserName] = useState('')
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<string | null>(null)
 
@@ -24,7 +25,7 @@ export default function UserEditForm() {
     const isUserStored = localStorage.getItem('user')
     if (isUserStored !== null) {
       const user: {name: string, email: string} = await JSON.parse(isUserStored)
-      setUserName(user['name'])
+      setName(user['name'])
       setEmail(user['email'])
     }
   }
@@ -37,8 +38,12 @@ export default function UserEditForm() {
     event.preventDefault()
 
     try {
+      const newUserData = {name, email}
+      await UsersService.update(newUserData)
+      
       setStatus('success')
     } catch (error) {
+      console.log(error)
       setStatus('error')
     }
   }
@@ -55,8 +60,8 @@ export default function UserEditForm() {
               type="text" 
               id="userName" 
               placeholder="Altere seu Nome" 
-              value={userName || ''}
-              onChange={e => {setUserName(e.target.value)}}
+              value={name || ''}
+              onChange={e => {setName(e.target.value)}}
               required
               name='name'
             />
@@ -82,6 +87,18 @@ export default function UserEditForm() {
               Atualizar dados
             </button>
           </fieldset>
+
+          {status === 'success' &&
+            <span className='text-emerald-500 text-xs text-center'>
+              Dados alterados com sucesso
+            </span>
+          }
+
+          {status === 'error' && 
+            <span className='text-rose-500 text-xs text-center'>
+              Erro ao alterar dados
+            </span>
+          }
 
         </div>
       </form>

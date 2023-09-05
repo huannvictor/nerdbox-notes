@@ -12,7 +12,7 @@ type loginDataProps = {
 }
 
 type updateUserNameProps = {
-  newName: string
+  name: string
   email: string
 }
 
@@ -45,7 +45,6 @@ const UsersService = {
     const response = await Api.put('/users', params, {
       headers: {'x-access-token': localStorage.getItem('token')}
     })
-
     localStorage.setItem('user', JSON.stringify(response.data))
   }, 
 
