@@ -1,4 +1,5 @@
-import UserEditForm from '@/components/users/edit';
+import PasswordEditForm from '@/components/users/passwordEditForm';
+import UserEditForm from '@/components/users/userEditForm';
 import Image from 'next/image';
 import logoImage from '../../../assets/images/logo.png';
 import styles from '../../ScreensStyles.module.css';
@@ -14,6 +15,7 @@ export default function UserEditScreen () {
           <h1 className={title}>Editar informações do usuário</h1>
         </div>
         <UserEditForm />
+        <PasswordEditForm />
       </div>
     </section>
   )
