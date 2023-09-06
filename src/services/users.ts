@@ -17,7 +17,7 @@ type updateUserNameProps = {
 }
 
 type updateUserPasswordProps = {
-  newPassWord: string
+  password: string
 }
 
 const UsersService = {

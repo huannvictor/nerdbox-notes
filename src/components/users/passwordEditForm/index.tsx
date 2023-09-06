@@ -28,10 +28,9 @@ export default function PasswordEditForm() {
 
     if (password == passwordConfirmation ) {
       try {
-        await UsersService.updatePassword({newPassWord: password})
+        await UsersService.updatePassword({password})
         setStatus('success')
       } catch (error) {
-        console.log(error)
         setStatus('error')
       }
     }
@@ -62,7 +61,7 @@ export default function PasswordEditForm() {
               Confirme a nova senha: 
             </label>
             <input
-              type="text"
+              type="password"
               value={passwordConfirmation}
               id="ConfirmUserPassword"
               placeholder="Confirme sua nova senha"
